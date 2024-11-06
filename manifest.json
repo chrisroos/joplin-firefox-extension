@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+  "name": "Joplin Notes Finder",
+  "version": "1.0",
+  "description": "Shows Joplin notes matching the URL of the current page.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "http://localhost:41184/*"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "browser_action": {
+    "default_icon": {
+      "48": "icons/icon.png"
+    }
+  },
+  "sidebar_action": {
+    "default_panel": "sidebar.html",
+    "default_icon": {
+      "48": "icons/icon.png"
+    },
+    "default_title": "Joplin Notes"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "48": "icons/icon.png"
+  }
+}
